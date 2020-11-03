@@ -19,7 +19,7 @@ export default {
                 controls: true,
                 sources: [
                     {
-                        src: "/public/video/OHHH.mp4",
+                        src: "/static/video/OHHH.mp4",
                         type: "video/mp4"
                     }
                 ]
