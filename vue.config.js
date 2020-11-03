@@ -1,4 +1,4 @@
 module.exports = {
-    publicPath: '/cho-k.github.io/',
+    publicPath: '/',
     outputDir: 'docs'
 }

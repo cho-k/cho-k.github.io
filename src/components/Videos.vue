@@ -15,7 +15,7 @@ export default {
     data() {
         return {
             videoOptions: {
-                autoplay: true,
+                autoplay: false,
                 controls: true,
                 sources: [
                     {

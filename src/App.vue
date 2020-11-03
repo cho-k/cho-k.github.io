@@ -1,23 +1,16 @@
 <template>
     <div id="app">
-        <img alt="Vue logo" src="./assets/logo.png">
-        <router-view msg="Hello"/>
+        <app-videos></app-videos>
     </div>
 </template>
 
 <script>
+import Videos from "@/components/Videos";
+
 export default {
-    name: 'App'
+    name: 'App',
+    components: {
+        'app-videos': Videos
+    }
 }
 </script>
-
-<style>
-#app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-}
-</style>
