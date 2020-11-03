@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <ul>
         <video-player :options="videoOptions"/>
-    </div>
+    </ul>
 </template>
 
 <script>
@@ -15,7 +15,7 @@ export default {
     data() {
         return {
             videoOptions: {
-                autoplay: false,
+                autoplay: 'muted',
                 controls: true,
                 sources: [
                     {
