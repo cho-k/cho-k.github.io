@@ -37,10 +37,10 @@ export default {
     },
     methods: {
         playerInitialize(){
-            var li = document.getElementById('li' + this.count);
+            var liTag = document.getElementById('li' + this.count);
             var videoHtml = '<video class="video-js" id="' + this.videoId + '" options="' + this.videoOptions + '"></video>';
-            li.innerHTML = '';
-            li.insertAdjacentHTML('afterbegin', videoHtml);
+            liTag.innerHTML = '';
+            liTag.insertAdjacentHTML('afterbegin', videoHtml);
             this.player = videojs(this.videoId, this.videoOptions, function onPlayerReady() {
                 console.log('onPlayerReady', this);
             })
@@ -91,8 +91,8 @@ export default {
         playerEndedEvents(){
             this.player.on('ended', function(){
                 window.playerEvents.playerDispose();
-                var li = document.getElementById('li' + this.count);
-                li.insertAdjacentHTML('afterbegin', '<img src="/static/img/tmp.jpg" height="200" alt="画像">');
+                var liTag = document.getElementById('li' + this.count);
+                liTag.insertAdjacentHTML('afterbegin', '<img src="/static/img/tmp.jpg" height="200" alt="画像">');
             });
             this.count = this.count + 1;
             this.goThrough();
