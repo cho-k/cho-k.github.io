@@ -1,7 +1,8 @@
 <template>
     <ul>
         <li>
-            <video class="video-js" :id="videoId" :options="videoOptions">123</video>
+            <video class="video-js" :id="videoId" :options="videoOptions"></video>
+            <img src="/static/img/tmp.jpg" alt="画像">
         </li>
     </ul>
 </template>
