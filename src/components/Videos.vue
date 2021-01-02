@@ -1,8 +1,7 @@
 <template>
     <ul>
-        <li>
+        <li id="li1">
             <video class="video-js" :id="videoId" :options="videoOptions"></video>
-            <img src="/static/img/tmp.jpg" alt="画像">
         </li>
     </ul>
 </template>
@@ -77,13 +76,20 @@ export default {
         playerSetupEvents(){
             this.player.on('volumechange', function(){ window.playerEvents.playerEventVolume(); });
             this.player.on('error', function(){ window.playerEvents.playerEventError(); });
-            this.player.on('ended', function(){ window.playerEvents.playerDispose(); });
         },
+        playerEndedEvents(){
+            this.player.on('ended', function(){
+                window.playerEvents.playerDispose();
+                var li1 = document.getElementById('li1');
+                li1.insertAdjacentHTML('afterbegin', '<img src="/static/img/tmp.jpg" height="200" alt="画像">');
+            });
+        }
     },
     mounted(){
         window.playerEvents = this;
         this.playerInitialize();
         this.playerSetupEvents();
+        this.playerEndedEvents();
     },
     beforeDestroy() {
         if (this.player) {
