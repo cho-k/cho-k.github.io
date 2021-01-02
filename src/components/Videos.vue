@@ -19,6 +19,7 @@ export default {
             videoOptions: {
                 autoplay: 'muted',
                 controls: true,
+                height: 200,
                 sources: [
                     {
                         src: "/static/video/OHHH.mp4",
