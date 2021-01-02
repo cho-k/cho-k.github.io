@@ -1,7 +1,5 @@
 <template>
-    <li>
-        <video ref="videoPlayer" class="video-js"></video>
-    </li>
+    <video ref="videoPlayer" class="video-js"></video>
 </template>
 
 <script>

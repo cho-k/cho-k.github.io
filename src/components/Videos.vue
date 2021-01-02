@@ -1,8 +1,14 @@
 <template>
     <ul>
-        <video-player id="player1" :options="videoOptions"/>
-        <video-player id="player2" :options="videoOptions"/>
-        <video-player id="player3" :options="videoOptions"/>
+        <li>
+            <video-player id="player1" :options="videoOptions"/>
+        </li>
+        <li>
+            <video-player id="player2" :options="videoOptions"/>
+        </li>
+        <li>
+            <video-player id="player3" :options="videoOptions"/>
+        </li>
     </ul>
 </template>
 
