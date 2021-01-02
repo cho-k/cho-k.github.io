@@ -31,15 +31,16 @@ export default {
                         type: "video/mp4"
                     }
                 ]
-            }
+            },
+            count: 1
         };
     },
     methods: {
         playerInitialize(){
-            var li1 = document.getElementById('li1');
+            var li = document.getElementById('li' + this.count);
             var videoHtml = '<video class="video-js" id="' + this.videoId + '" options="' + this.videoOptions + '"></video>';
-            li1.innerHTML = '';
-            li1.insertAdjacentHTML('afterbegin', videoHtml);
+            li.innerHTML = '';
+            li.insertAdjacentHTML('afterbegin', videoHtml);
             this.player = videojs(this.videoId, this.videoOptions, function onPlayerReady() {
                 console.log('onPlayerReady', this);
             })
@@ -90,16 +91,21 @@ export default {
         playerEndedEvents(){
             this.player.on('ended', function(){
                 window.playerEvents.playerDispose();
-                var li1 = document.getElementById('li1');
-                li1.insertAdjacentHTML('afterbegin', '<img src="/static/img/tmp.jpg" height="200" alt="画像">');
+                var li = document.getElementById('li' + this.count);
+                li.insertAdjacentHTML('afterbegin', '<img src="/static/img/tmp.jpg" height="200" alt="画像">');
             });
+            this.count = this.count + 1;
+            this.goThrough();
+        },
+        goThrough(){
+            window.playerEvents = this;
+            this.playerInitialize();
+            this.playerSetupEvents();
+            this.playerEndedEvents();
         }
     },
     mounted(){
-        window.playerEvents = this;
-        this.playerInitialize();
-        this.playerSetupEvents();
-        this.playerEndedEvents();
+        this.goThrough();
     },
     beforeDestroy() {
         if (this.player) {
