@@ -1,7 +1,7 @@
 <template>
     <ul>
         <li>
-            <video id="player1" class="video-js" :options="videoOptions">123</video>
+            <video class="video-js" :id="videoId" :options="videoOptions">123</video>
         </li>
     </ul>
 </template>
@@ -14,6 +14,7 @@ export default {
     data() {
         return {
             player: null,
+            videoId: 'player1',
             videoOptions: {
                 autoplay: 'muted',
                 controls: true,
@@ -29,7 +30,7 @@ export default {
     },
     methods: {
         playerInitialize(){
-            this.player = videojs(this.id, this.options, function onPlayerReady() {
+            this.player = videojs(this.videoId, this.videoOptions, function onPlayerReady() {
                 console.log('onPlayerReady', this);
             })
         },
