@@ -22,7 +22,8 @@ export default {
             player: null,
             videoId: 'player',
             videoOptions: {
-                autoplay: 'muted',
+                autoplay: true,
+                muted: true,
                 controls: true,
                 height: 200,
                 sources: [
@@ -38,7 +39,7 @@ export default {
     methods: {
         playerInitialize(){
             var liTag = document.getElementById('li' + this.count);
-            var videoHtml = '<video autoplay class="video-js" id="' + this.videoId + '" options="' + this.videoOptions + '"></video>';
+            var videoHtml = '<video class="video-js" id="' + this.videoId + '" options="' + this.videoOptions + '"></video>';
             liTag.innerHTML = '';
             liTag.insertAdjacentHTML('afterbegin', videoHtml);
 
