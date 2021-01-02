@@ -1,5 +1,5 @@
 <template>
-    <video :ref="ref" class="video-js"></video>
+    <video class="video-js"></video>
 </template>
 
 <script>
@@ -8,9 +8,9 @@ import videojs from 'video.js';
 export default {
     name: "VideoPlayer",
     props: {
-        ref: {
+        id: {
             type: String,
-            default: 'videoPlayer'
+            default: 'player1'
         },
         options: {
             type: Object,
@@ -26,7 +26,7 @@ export default {
     },
     methods: {
         playerInitialize(){ 
-            this.player = videojs(this.$refs.videoPlayer, this.options, function onPlayerReady() {
+            this.player = videojs(this.id, this.options, function onPlayerReady() {
                 console.log('onPlayerReady', this);
             })
         },
@@ -70,9 +70,9 @@ export default {
             return this.player.error().message;
         },
         playerSetupEvents(){
-            this.player.on('ended', function(){ window.playerEvents.playerDispose(); });
             this.player.on('volumechange', function(){ window.playerEvents.playerEventVolume(); });
             this.player.on('error', function(){ window.playerEvents.playerEventError(); });
+            this.player.on('ended', function(){ window.playerEvents.playerDispose(); });
         },
     },
     mounted(){
