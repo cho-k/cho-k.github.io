@@ -1,5 +1,5 @@
 <template>
-    <video class="video-js"></video>
+    <video :ref="ref" class="video-js"></video>
 </template>
 
 <script>
