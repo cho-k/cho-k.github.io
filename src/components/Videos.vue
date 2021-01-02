@@ -3,6 +3,12 @@
         <li id="li1">
             <video class="video-js" :id="videoId" :options="videoOptions"></video>
         </li>
+        <li id="li2">
+            <img src="/static/img/tmp.jpg" height="200" alt="画像">
+        </li>
+        <li id="li3">
+            <img src="/static/img/tmp.jpg" height="200" alt="画像">
+        </li>
     </ul>
 </template>
 
@@ -14,7 +20,7 @@ export default {
     data() {
         return {
             player: null,
-            videoId: 'player1',
+            videoId: 'player',
             videoOptions: {
                 autoplay: 'muted',
                 controls: true,
@@ -81,7 +87,10 @@ export default {
             this.player.on('ended', function(){
                 window.playerEvents.playerDispose();
                 var li1 = document.getElementById('li1');
+                var li2 = document.getElementById('li2');
+                //var li3 = document.getElementById('li3');
                 li1.insertAdjacentHTML('afterbegin', '<img src="/static/img/tmp.jpg" height="200" alt="画像">');
+                li2.insertAdjacentHTML('afterbegin', '<video class="video-js" :id="videoId" :options="videoOptions"></video>');
             });
         }
     },
