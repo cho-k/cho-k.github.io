@@ -1,5 +1,5 @@
 <template>
-    <video class="video-js"></video>
+    <video ref="videoPlayer" class="video-js"></video>
 </template>
 
 <script>
@@ -8,10 +8,6 @@ import videojs from 'video.js';
 export default {
     name: "VideoPlayer",
     props: {
-        id: {
-            type: String,
-            default: 'player1'
-        },
         options: {
             type: Object,
             default() {
@@ -25,13 +21,13 @@ export default {
         }
     },
     methods: {
-        playerInitialize(){ 
-            this.player = videojs(this.id, this.options, function onPlayerReady() {
+        playerInitialize(){
+            this.player = videojs(this.$refs.videoPlayer, this.options, function onPlayerReady() {
                 console.log('onPlayerReady', this);
             })
         },
-        playerDispose(){ 
-            this.player.dispose(); 
+        playerDispose(){
+            this.player.dispose();
         },
         playerPlay(){
             this.player.play();
@@ -39,14 +35,14 @@ export default {
         playerPause(){
             this.player.pause();
         },
-        playerSetSrc(url){ 
-            this.player.src(url); 
+        playerSetSrc(url){
+            this.player.src(url);
         },
         playerSetVolume(float){
             this.player.volume(float); 
         },
-        playerSetPoster(url){ 
-            this.player.poster(url); 
+        playerSetPoster(url){
+            this.player.poster(url);
         },
         playerSetTime(time){
             this.player.currentTime(time);
@@ -54,10 +50,10 @@ export default {
         playerEventEnded(){
             console.log('ended');
         },
-        playerEventVolume(){ 
-            this.volume = this.player.volume(); 
+        playerEventVolume(){
+            this.volume = this.player.volume();
         },
-        playerEventError(){ 
+        playerEventError(){
             console.log( this.playerGetError() )
         },
         playerGetPaused(){
