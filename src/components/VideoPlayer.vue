@@ -1,5 +1,5 @@
 <template>
-    <video ref="videoPlayer" class="video-js"></video>
+    <video class="video-js"></video>
 </template>
 
 <script>
@@ -8,6 +8,10 @@ import videojs from 'video.js';
 export default {
     name: "VideoPlayer",
     props: {
+        ref: {
+            type: String,
+            default: 'videoPlayer'
+        },
         options: {
             type: Object,
             default() {

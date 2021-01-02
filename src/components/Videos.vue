@@ -1,13 +1,13 @@
 <template>
     <ul>
         <li>
-            <video-player id="player1" :options="videoOptions"/>
+            <video-player ref="videoPlayer1" id="player1" :options="videoOptions"/>
         </li>
         <li>
-            <video-player id="player2" :options="videoOptions"/>
+            <video-player ref="videoPlayer2" id="player2" :options="videoOptions"/>
         </li>
         <li>
-            <video-player id="player3" :options="videoOptions"/>
+            <video-player ref="videoPlayer3" id="player3" :options="videoOptions"/>
         </li>
     </ul>
 </template>
