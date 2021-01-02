@@ -1,6 +1,8 @@
 <template>
     <ul>
         <video-player :options="videoOptions"/>
+        <video-player :options="videoOptions"/>
+        <video-player :options="videoOptions"/>
     </ul>
 </template>
 
