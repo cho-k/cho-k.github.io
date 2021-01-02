@@ -38,9 +38,10 @@ export default {
     methods: {
         playerInitialize(){
             var liTag = document.getElementById('li' + this.count);
-            var videoHtml = '<video class="video-js" id="' + this.videoId + '" options="' + this.videoOptions + '"></video>';
+            var videoHtml = '<video autoplay class="video-js" id="' + this.videoId + '" options="' + this.videoOptions + '"></video>';
             liTag.innerHTML = '';
             liTag.insertAdjacentHTML('afterbegin', videoHtml);
+
             this.player = videojs(this.videoId, this.videoOptions, function onPlayerReady() {
                 console.log('onPlayerReady', this);
             })
@@ -91,11 +92,16 @@ export default {
         playerEndedEvents(){
             this.player.on('ended', function(){
                 window.playerEvents.playerDispose();
-                var liTag = document.getElementById('li' + this.count);
+
+                var liTag = document.getElementById('li' + window.playerEvents.count);
                 liTag.insertAdjacentHTML('afterbegin', '<img src="/static/img/tmp.jpg" height="200" alt="画像">');
-                this.count = this.count + 1;
-                console.log(this.count);
-                this.goThrough();
+
+                window.playerEvents.count = window.playerEvents.count + 1;
+                if(window.playerEvents.count > 3){
+                    window.playerEvents.count = 1;
+                }
+
+                window.playerEvents.goThrough();
             });
         },
         goThrough(){
