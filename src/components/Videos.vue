@@ -93,9 +93,9 @@ export default {
                 window.playerEvents.playerDispose();
                 var liTag = document.getElementById('li' + this.count);
                 liTag.insertAdjacentHTML('afterbegin', '<img src="/static/img/tmp.jpg" height="200" alt="画像">');
+                this.count = this.count + 1;
+                this.goThrough();
             });
-            this.count = this.count + 1;
-            this.goThrough();
         },
         goThrough(){
             window.playerEvents = this;
