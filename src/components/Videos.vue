@@ -1,7 +1,7 @@
 <template>
     <ul>
         <li id="li1">
-            <video class="video-js" :id="videoId" :options="videoOptions"></video>
+            <img src="/static/img/tmp.jpg" height="200" alt="画像">
         </li>
         <li id="li2">
             <img src="/static/img/tmp.jpg" height="200" alt="画像">
@@ -36,6 +36,10 @@ export default {
     },
     methods: {
         playerInitialize(){
+            var li1 = document.getElementById('li1');
+            var videoHtml = '<video class="video-js" id="' + this.videoId + '" options="' + this.videoOptions + '"></video>';
+            li1.innerHTML = '';
+            li1.insertAdjacentHTML('afterbegin', videoHtml);
             this.player = videojs(this.videoId, this.videoOptions, function onPlayerReady() {
                 console.log('onPlayerReady', this);
             })
@@ -87,10 +91,7 @@ export default {
             this.player.on('ended', function(){
                 window.playerEvents.playerDispose();
                 var li1 = document.getElementById('li1');
-                var li2 = document.getElementById('li2');
-                //var li3 = document.getElementById('li3');
                 li1.insertAdjacentHTML('afterbegin', '<img src="/static/img/tmp.jpg" height="200" alt="画像">');
-                li2.insertAdjacentHTML('afterbegin', '<video class="video-js" :id="videoId" :options="videoOptions"></video>');
             });
         }
     },
