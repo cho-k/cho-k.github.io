@@ -1,13 +1,13 @@
 <template>
     <ul>
         <li id="li1">
-            <img src="/static/img/tmp.jpg" height="200" alt="画像">
+            <img id="img1" v-on:mouseover="mouseOverAction(1)" src="/static/img/tmp.jpg" height="200" alt="画像">
         </li>
         <li id="li2">
-            <img src="/static/img/tmp.jpg" height="200" alt="画像">
+            <img id="img2" v-on:mouseover="mouseOverAction(2)" src="/static/img/tmp.jpg" height="200" alt="画像">
         </li>
         <li id="li3">
-            <img src="/static/img/tmp.jpg" height="200" alt="画像">
+            <img id="img3" v-on:mouseover="mouseOverAction(3)" src="/static/img/tmp.jpg" height="200" alt="画像">
         </li>
     </ul>
 </template>
@@ -39,8 +39,9 @@ export default {
     methods: {
         playerInitialize(){
             var liTag = document.getElementById('li' + this.count);
+            var imgTag = document.getElementById('img' + this.count);
             var videoHtml = '<video class="video-js" id="' + this.videoId + '" options="' + this.videoOptions + '"></video>';
-            liTag.innerHTML = '';
+            imgTag.style.display = 'none';
             liTag.insertAdjacentHTML('afterbegin', videoHtml);
 
             this.player = videojs(this.videoId, this.videoOptions, function onPlayerReady() {
@@ -94,8 +95,8 @@ export default {
             this.player.on('ended', function(){
                 window.playerEvents.playerDispose();
 
-                var liTag = document.getElementById('li' + window.playerEvents.count);
-                liTag.insertAdjacentHTML('afterbegin', '<img src="/static/img/tmp.jpg" height="200" alt="画像">');
+                var imgTag = document.getElementById('img' + window.playerEvents.count);
+                imgTag.style.display = 'block';
 
                 window.playerEvents.count = window.playerEvents.count + 1;
                 if(window.playerEvents.count > 3){
@@ -104,6 +105,15 @@ export default {
 
                 window.playerEvents.goThrough();
             });
+        },
+        mouseOverAction(index){
+            window.playerEvents.playerDispose();
+
+            var imgTag = document.getElementById('img' + window.playerEvents.count);
+            imgTag.style.display = 'block';
+
+            window.playerEvents.count = index;
+            window.playerEvents.goThrough();
         },
         goThrough(){
             window.playerEvents = this;
