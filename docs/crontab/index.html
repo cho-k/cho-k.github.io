@@ -12,7 +12,7 @@
       <h1>Crontab変換例</h1>
       <div>
         <div>
-          分：
+          分　：
           <select id="mins" multiple>
             <option value="*" selected>0</option>
             <option value="5">5</option>
@@ -37,7 +37,7 @@
           </select>分毎
         </div>
         <div>
-          時：
+          時　：
           <select id="hours" multiple>
             <option value="*" selected></option>
             <option value="8">8</option>
@@ -59,7 +59,7 @@
           </select>時間毎
         </div>
         <div>
-          日：
+          日　：
           <select id="days" multiple>
             <option value="*" selected></option>
             <option value="1">1</option>
@@ -80,7 +80,7 @@
           </select>日毎
       </div>
       <div>
-          月：
+          月　：
           <select id="months" multiple>
             <option value="*" selected></option>
             <option value="1">1</option>
@@ -105,7 +105,7 @@
       </div>
       <div>
           曜日：
-          <select id="days" multiple>
+          <select id="weeks" multiple>
             <option value="*" selected></option>
             <option value="1">月</option>
             <option value="2">火</option>
@@ -117,6 +117,7 @@
           </select>曜日
       </div>
     </div>
+    <p><span id="p-min">*</span> <span id="p-hour">*</span> <span id="p-day">*</span> <span id="p-month">*</span> <span id="p-week">*</span> [実行コマンド]</p>
     <script src="index.js"></script>
   </body>
 </html>
