@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const weeks = document.getElementById('weeks');
     
     for (let i = 0; i < mins.length; i++) {
-      console.log(mins[i].value);
+      console.log(mins[i].selected.value);
     }
   });
 });
