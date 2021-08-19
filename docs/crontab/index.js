@@ -18,6 +18,9 @@ window.addEventListener('DOMContentLoaded', () => {
       if (mins[i].selected) {
         ary[num] = mins[i].value;
         num++;
+        
+        if (mins[i].value === '*') {
+          break;
       }
     }
     str = ary.join(',');
