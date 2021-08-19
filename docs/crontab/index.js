@@ -1,5 +1,8 @@
-const mins = document.querySelector('#mins');
+const mins = document.getElementById('mins');
 
 for (let i=0; i<60; i++) {
-  mins.appendChild('<option value="1">1</option>');
+  const option = document.createElement('option');
+  option.text = i;
+  option.value = i;
+  mins.appendChild(option);
 }
