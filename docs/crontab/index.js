@@ -12,10 +12,15 @@ window.addEventListener('DOMContentLoaded', () => {
     const everyMonth = document.getElementById('every-month');
     const weeks = document.getElementById('weeks');
     
+    let ary = new Array();
+    let num = 0;
     for (let i = 0; i < mins.length; i++) {
       if (mins[i].selected) {
-        console.log(mins[i].value);
+        ary[num] = mins[i].value;
+        num++;
       }
     }
+    str = ary.join(',');
+    console.log(str);
   });
 });
