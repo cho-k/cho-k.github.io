@@ -26,5 +26,13 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     str = ary.join(',');
     console.log(str);
+    
+    const pMin = document.getElementById('p-min');
+    const pHour = document.getElementById('p-hour');
+    const pDay = document.getElementById('p-day');
+    const pMonth = document.getElementById('p-month');
+    const pWeek = document.getElementById('p-week');
+    
+    pMin.textContent(str);
   });
 });
