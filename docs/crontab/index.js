@@ -78,5 +78,20 @@ window.addEventListener('DOMContentLoaded', () => {
     if (everyMin.value !== '*') {
       pMin.textContent = '*/' + everyMin.value;
     }
+    
+    pHour.textContent = hourStr;
+    if (everyHour.value !== '*') {
+      pHour.textContent = '*/' + everyHour.value;
+    }
+    
+    pDay.textContent = dayStr;
+    if (everyDay.value !== '*') {
+      pDay.textContent = '*/' + everyDay.value;
+    }
+    
+    pMonth.textContent = monthStr;
+    if (everyMonth.value !== '*') {
+      pMonth.textContent = '*/' + everyMonth.value;
+    }
   });
 });
