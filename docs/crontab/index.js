@@ -88,24 +88,25 @@ window.addEventListener('DOMContentLoaded', () => {
     const pMonth = document.getElementById('p-month');
     const pWeek = document.getElementById('p-week');
     
-    pMin.textContent = minStr;
-    if (everyMin.value !== '*') {
-      pMin.textContent = '*/' + everyMin.value;
+    pMonth.textContent = monthStr;
+    if (everyMonth.value !== '*') {
+      pMonth.textContent = '*/' + everyMonth.value;
     }
-    
-    pHour.textContent = hourStr;
-    if (everyHour.value !== '*') {
-      pHour.textContent = '*/' + everyHour.value;
-    }
-    
+
     pDay.textContent = dayStr;
     if (everyDay.value !== '*') {
       pDay.textContent = '*/' + everyDay.value;
     }
+
+    pHour.textContent = hourStr;
+    if (everyHour.value !== '*') {
+      pMin.textContent = 0;
+      pHour.textContent = '*/' + everyHour.value;
+    }
     
-    pMonth.textContent = monthStr;
-    if (everyMonth.value !== '*') {
-      pMonth.textContent = '*/' + everyMonth.value;
+    pMin.textContent = minStr;
+    if (everyMin.value !== '*') {
+      pMin.textContent = '*/' + everyMin.value;
     }
     
     pWeek.textContent = weekStr;
