@@ -68,6 +68,20 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     monthStr = monthAry.join(',');
     
+    let weekAry = new Array();
+    let weekNum = 0;
+    for (let i = 0; i < weeks.length; i++) {
+      if (weeks[i].selected) {
+        weekAry[weekNum] = weeks[i].value;
+        weekNum++;
+        
+        if (weeks[i].value === '*') {
+          break;
+        }
+      }
+    }
+    weekStr = weekAry.join(',');
+    
     const pMin = document.getElementById('p-min');
     const pHour = document.getElementById('p-hour');
     const pDay = document.getElementById('p-day');
@@ -93,5 +107,7 @@ window.addEventListener('DOMContentLoaded', () => {
     if (everyMonth.value !== '*') {
       pMonth.textContent = '*/' + everyMonth.value;
     }
+    
+    pWeek.textContent = weekStr;
   });
 });
