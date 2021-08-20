@@ -33,6 +33,6 @@ window.addEventListener('DOMContentLoaded', () => {
     const pMonth = document.getElementById('p-month');
     const pWeek = document.getElementById('p-week');
     
-    pMin.textContent(str);
+    pMin.textContent = str;
   });
 });
