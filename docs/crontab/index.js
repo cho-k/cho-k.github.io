@@ -99,9 +99,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     pHour.textContent = hourStr;
-    if (everyDay.value !== '*') {
-      pHour.textContent = 0;
-    }
     if (everyHour.value !== '*') {
       pHour.textContent = '*/' + everyHour.value;
     }
