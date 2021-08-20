@@ -12,11 +12,11 @@ window.addEventListener('DOMContentLoaded', () => {
     const everyMonth = document.getElementById('every-month');
     const weeks = document.getElementById('weeks');
     
-    let ary = new Array();
+    let minAry = new Array();
     let num = 0;
     for (let i = 0; i < mins.length; i++) {
       if (mins[i].selected) {
-        ary[num] = mins[i].value;
+        minAry[num] = mins[i].value;
         num++;
         
         if (mins[i].value === '*') {
@@ -24,8 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       }
     }
-    str = ary.join(',');
-    console.log(str);
+    minStr = minAry.join(',');
     
     const pMin = document.getElementById('p-min');
     const pHour = document.getElementById('p-hour');
@@ -33,6 +32,9 @@ window.addEventListener('DOMContentLoaded', () => {
     const pMonth = document.getElementById('p-month');
     const pWeek = document.getElementById('p-week');
     
-    pMin.textContent = str;
+    pMin.textContent = minStr;
+    if (everyMin.value !== '*') {
+      pMin.textContent = '*/' + everyMin.value;
+    }
   });
 });
