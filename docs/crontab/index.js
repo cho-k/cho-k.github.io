@@ -13,11 +13,11 @@ window.addEventListener('DOMContentLoaded', () => {
     const weeks = document.getElementById('weeks');
     
     let minAry = new Array();
-    let num = 0;
+    let minNum = 0;
     for (let i = 0; i < mins.length; i++) {
       if (mins[i].selected) {
-        minAry[num] = mins[i].value;
-        num++;
+        minAry[minNum] = mins[i].value;
+        minNum++;
         
         if (mins[i].value === '*') {
           break;
@@ -25,6 +25,48 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     }
     minStr = minAry.join(',');
+    
+    let hourAry = new Array();
+    let hourNum = 0;
+    for (let i = 0; i < hours.length; i++) {
+      if (hours[i].selected) {
+        hourAry[hourNum] = hours[i].value;
+        hourNum++;
+        
+        if (hours[i].value === '*') {
+          break;
+        }
+      }
+    }
+    hourStr = hourAry.join(',');
+    
+    let dayAry = new Array();
+    let dayNum = 0;
+    for (let i = 0; i < days.length; i++) {
+      if (days[i].selected) {
+        dayAry[dayNum] = days[i].value;
+        dayNum++;
+        
+        if (days[i].value === '*') {
+          break;
+        }
+      }
+    }
+    dayStr = dayAry.join(',');
+    
+    let monthAry = new Array();
+    let monthNum = 0;
+    for (let i = 0; i < months.length; i++) {
+      if (months[i].selected) {
+        monthAry[monthNum] = months[i].value;
+        monthNum++;
+        
+        if (months[i].value === '*') {
+          break;
+        }
+      }
+    }
+    monthStr = monthAry.join(',');
     
     const pMin = document.getElementById('p-min');
     const pHour = document.getElementById('p-hour');
