@@ -100,11 +100,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
     pHour.textContent = hourStr;
     if (everyHour.value !== '*') {
-      pMin.textContent = 0;
       pHour.textContent = '*/' + everyHour.value;
     }
     
     pMin.textContent = minStr;
+    if (everyHour.value !== '*') {
+      pMin.textContent = 0;
+    }
     if (everyMin.value !== '*') {
       pMin.textContent = '*/' + everyMin.value;
     }
